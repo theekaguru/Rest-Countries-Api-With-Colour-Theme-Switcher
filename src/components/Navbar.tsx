@@ -1,4 +1,9 @@
-export const Navbar = () => {
+interface NavbarProps {
+  theme: string;
+  setTheme: (theme: string) => void;
+}
+
+export const Navbar = ({ theme, setTheme }: NavbarProps) => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
@@ -7,7 +12,12 @@ export const Navbar = () => {
       <div className="flex-none">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={theme === "dark"}
+            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle dark mode"
+          />
 
           {/* sun icon */}
           <svg
