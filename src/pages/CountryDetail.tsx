@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { countriesData } from "./CountryCardSection";
-import type { Country } from "./CountryCardSection";
 
 interface CountryDetailProps {
   theme: string;
