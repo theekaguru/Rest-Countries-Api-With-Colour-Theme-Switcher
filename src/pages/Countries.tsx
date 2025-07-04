@@ -1,18 +1,16 @@
-import { useState, useEffect } from "react";
 import { Footer } from "../components/Footer"
 import { Navbar } from "../components/Navbar"
 
-export const Countries = () => {
-  const [theme, setTheme] = useState("light");
+interface CountriesProps {
+  theme: string;
+  setTheme: (theme: string) => void;
+}
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
+export const Countries = ({ theme, setTheme }: CountriesProps) => {
   return (
     <>
-        <Navbar theme={theme} setTheme={setTheme}/>
-        <Footer/>
-        </>
+      <Navbar theme={theme} setTheme={setTheme} />
+      <Footer />
+    </>
   )
 }

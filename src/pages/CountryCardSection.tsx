@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // Define country type
-interface Country {
+export interface Country {
   name: string;
   capital: string;
   region: string;
@@ -14,7 +14,7 @@ interface Country {
 }
 
 // Static country data
-const countriesData: Country[] = [
+export const countriesData: Country[] = [
   {
     name: "Germany",
     capital: "Berlin",
