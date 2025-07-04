@@ -12,3 +12,10 @@ pnpm add react-router-dom
 
 //install react icons
 pnpm install lucid-react
+
+//install react icons
+pnpm add react-icons
+
+//install react spinners 
+pnpm install --save-dev @types/react-spinners
+pnpm install react-spinners

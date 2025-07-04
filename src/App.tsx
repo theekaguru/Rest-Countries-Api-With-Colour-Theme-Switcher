@@ -18,7 +18,7 @@ function App() {
     element:<Countries/>,
     errorElement:<Error/>
 
-   }
+   },
 
    ])
   return (
