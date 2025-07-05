@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import data from '../data.json';
 
 const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
@@ -48,15 +49,21 @@ export const CountryCard = () => {
       {/* Country Cards Grid */}
       <div className="grid w-full gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredCountries.map((country: any) => (
-          <div key={country.name} className="bg-base-100 w-full rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-200">
-            <img src={country.flags?.svg || country.flag} alt={country.name} className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h2 className="font-bold text-lg mb-2">{country.name}</h2>
-              <p className="text-sm mb-1"><span className="font-semibold">Population:</span> {country.population.toLocaleString()}</p>
-              <p className="text-sm mb-1"><span className="font-semibold">Region:</span> {country.region}</p>
-              <p className="text-sm"><span className="font-semibold">Capital:</span> {country.capital}</p>
+          <Link
+            key={country.name}
+            to={`/country/${encodeURIComponent(country.name)}`}
+            className="block h-full"
+          >
+            <div className="bg-base-100 w-full rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-200">
+              <img src={country.flags?.svg || country.flag} alt={country.name} className="w-full h-40 object-cover" />
+              <div className="p-6">
+                <h2 className="font-bold text-lg mb-2">{country.name}</h2>
+                <p className="text-sm mb-1"><span className="font-semibold">Population:</span> {country.population.toLocaleString()}</p>
+                <p className="text-sm mb-1"><span className="font-semibold">Region:</span> {country.region}</p>
+                <p className="text-sm"><span className="font-semibold">Capital:</span> {country.capital}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
